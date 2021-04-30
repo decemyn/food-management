@@ -1,6 +1,7 @@
 #include "headers/basewindow.h"
-
+#include "headers/loginmenu.h"
 #include <QApplication>
+
 
 int main(int argc, char *argv[])
 {

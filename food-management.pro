@@ -10,15 +10,24 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    source/basewindow.cpp
+    source/basewindow.cpp \
+    source/loginmenu.cpp
 
 HEADERS += \
-    headers/basewindow.h
+    headers/basewindow.h \
+    headers/loginmenu.h
 
 FORMS += \
-    ui/basewindow.ui
+    ui/basewindow.ui \
+    ui/loginmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    assets/hamburger_logo.png
+
+RESOURCES += \
+    resouces.qrc
