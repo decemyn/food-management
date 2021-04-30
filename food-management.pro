@@ -10,10 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    source/basewindow.cpp
+    source/basewindow.cpp \
+    source/fileio.cpp
 
 HEADERS += \
-    headers/basewindow.h
+    headers/basewindow.h \
+    headers/fileio.h
 
 FORMS += \
     ui/basewindow.ui
