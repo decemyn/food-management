@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     source/basewindow.cpp \
-    source/fileio.cpp
+    source/fileio.cpp \
+    source/product.cpp
 
 HEADERS += \
     headers/basewindow.h \
     headers/fileio.h \
+    headers/product.h \
     include/rapidjson/allocators.h \
     include/rapidjson/document.h \
     include/rapidjson/encodedstream.h \
