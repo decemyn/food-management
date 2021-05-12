@@ -47,4 +47,22 @@ void Drink::setVolume(int Volume) { this->Volume = Volume; }
 
 // Output overloading
 
-QDebug operator<<(QDebug debug, const Product &obj) { debug << "works?"; }
+void Product::PrintProduct(QDebug debug) const {
+  debug << this->ID << " " << this->Price << " "
+        << QString::fromStdString(this->ProductName) << " " << this->KCal
+        << '\n';
+}
+
+void Food::PrintProduct(QDebug debug) const {
+  debug << this->ID << " " << this->Price << " "
+        << QString::fromStdString(this->ProductName) << " " << this->KCal
+        << this->Weight << '\n';
+}
+
+void Drink::PrintProduct(QDebug debug) const {
+  debug << this->ID << " " << this->Price << " "
+        << QString::fromStdString(this->ProductName) << " " << this->KCal
+        << this->Volume << '\n';
+}
+
+QDebug operator<<(QDebug debug, const Product &obj) { obj.PrintProduct(debug); }

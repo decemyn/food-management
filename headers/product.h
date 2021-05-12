@@ -10,6 +10,8 @@ protected:
 public:
   Product(int ID, int price = -1, int KCal = -1, std::string ProductName = "");
 
+  virtual void PrintProduct(QDebug) const;
+
   friend QDebug operator<<(QDebug debug, const Product &);
 
   int getID();
@@ -37,6 +39,8 @@ public:
   Food(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
        int Weight = -1);
 
+  virtual void PrintProduct(QDebug) const;
+
   int getWeight();
 
   void setWeight(int);
@@ -49,6 +53,8 @@ protected:
 public:
   Drink(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
         int Volume = -1);
+
+  virtual void PrintProduct(QDebug) const;
 
   int getVolume();
 

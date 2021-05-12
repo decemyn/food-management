@@ -20,8 +20,12 @@ BaseWindow::BaseWindow(QWidget *parent)
       QString("%1").arg(fio_instance.getValueFromKey("name").c_str());
 
   QMessageBox::information(this, tr("Application Name"), file_status2);*/
-  Product test(1);
+  Product test(1, 20, 100, "Produs1");
+  Food test2(1, 50, 150, "FoodTest", 100);
+  Drink test3(1, 100, 300, "Bautura", 300);
   qDebug() << test;
+  qDebug() << test2;
+  qDebug() << test3;
 }
 
 BaseWindow::~BaseWindow() { delete ui; }
