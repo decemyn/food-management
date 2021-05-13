@@ -5,10 +5,11 @@
 #include <include/rapidjson/document.h>
 #include <include/rapidjson/istreamwrapper.h>
 #include <include/rapidjson/ostreamwrapper.h>
+#include <include/rapidjson/prettywriter.h>
 #include <include/rapidjson/reader.h>
 #include <include/rapidjson/stringbuffer.h>
-#include <include/rapidjson/writer.h>
 #include <string>
+#include <vector>
 class FileIO {
 private:
   std::ifstream JsonFH;
@@ -20,13 +21,19 @@ private:
 public:
   FileIO(const std::string &);
 
+  virtual ~FileIO();
+
   bool CheckFileStatus();
 
   bool CheckForParseErrors();
 
-  const std::string getValueFromKey(const std::string);
+  const std::string getStringFromKey(std::string);
 
   void writeStringToKey(std::string, std::string);
+
+  void writeArrayToKey(std::string, std::vector<std::string>);
+
+  std::vector<std::string> getArrayFromKey(std::string);
 
   void RefreshDocument();
 };
