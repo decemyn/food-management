@@ -242,7 +242,7 @@ void FileIO::RemoveJsonFile(QString JsonName) {
       exit(EXIT_FAILURE);
     }
   } catch (...) {
-    qCritical() << "Error ocurred while opening json file!";
+    qCritical() << "Error ocurred while removing json file!";
     exit(EXIT_FAILURE);
   }
 }
