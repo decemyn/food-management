@@ -8,3 +8,14 @@ ziua respectivă.
   cea mai profitabilă zi, 
   cel mai bine vândut produs,
   media cantităților comandate pentru fiecare produs în parte etc.!
+
+# Documentation
+
+## UserDomain::DynamicAuthenticateUser(Username,Password)
+#### This static method dynamicly authenticates the user (registers/authenticates).
+## UserDomain::DeAuthenticateUser()
+#### This static method deauthenticates the user.
+## UserDomain::GetUserState()
+#### This static method returns the current user's authenthication state (AUTHENTICATED/NOT_AUTHENTICATED).
+## UserDomain::GetUserName()
+#### This static method returns the current authenticated username.
