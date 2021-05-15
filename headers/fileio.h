@@ -15,9 +15,11 @@
 #include <vector>
 class FileIO {
 private:
+  bool Persistency;
   std::ifstream JsonFH;
   std::ofstream JsonOFH;
   std::string JsonPath;
+  QString JsonName;
   rapidjson::StringBuffer JsonBuffer{};
   rapidjson::Document JsonDocument{};
 
@@ -25,12 +27,8 @@ private:
 
   static QDir GetStorageDirectory();
 
-  static void GenJsonFile(QString);
-
-  static QString GetJsonFile(QString);
-
 public:
-  FileIO(QString);
+  FileIO(QString, bool Persistency = true);
 
   virtual ~FileIO();
 
@@ -49,6 +47,12 @@ public:
   std::vector<std::string> GetArrayFromKey(std::string);
 
   void RefreshDocument();
+
+  static void GenJsonFile(QString);
+
+  static QString GetJsonFile(QString);
+
+  static void RemoveJsonFile(QString);
 };
 
 #endif // FILEIO_H

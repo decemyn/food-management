@@ -1,6 +1,8 @@
 #include <headers/fileio.h>
-FileIO::FileIO(QString FilePath) {
-  this->JsonPath = FileIO::GetJsonFile(FilePath).toStdString();
+FileIO::FileIO(QString FileName, bool Persistency) {
+  this->Persistency = Persistency;
+  this->JsonName = FileName;
+  this->JsonPath = FileIO::GetJsonFile(FileName).toStdString();
   this->JsonFH.open(this->JsonPath);
   if (this->CheckFileStatus()) {
     this->RefreshDocument();
@@ -15,6 +17,9 @@ FileIO::~FileIO() {
     this->JsonFH.close();
   if (this->JsonOFH.is_open())
     this->JsonOFH.close();
+  if (Persistency == false) {
+    FileIO::RemoveJsonFile(this->JsonName);
+  }
 }
 
 void FileIO::RefreshDocument() {
@@ -215,6 +220,23 @@ QString FileIO::GetJsonFile(QString JsonName) {
     QFile JsonFileHandle(FinalJsonPath);
     if (JsonFileHandle.exists()) {
       return JsonFileHandle.fileName();
+    } else {
+      qCritical() << "File " << JsonName << " does not exist!";
+      exit(EXIT_FAILURE);
+    }
+  } catch (...) {
+    qCritical() << "Error ocurred while opening json file!";
+    exit(EXIT_FAILURE);
+  }
+}
+
+void FileIO::RemoveJsonFile(QString JsonName) {
+  try {
+    QDir StorageDirectory = FileIO::GetStorageDirectory();
+    QString FinalJsonPath = StorageDirectory.filePath(JsonName);
+    QFile JsonFileHandle(FinalJsonPath);
+    if (JsonFileHandle.exists()) {
+      JsonFileHandle.remove();
     } else {
       qCritical() << "File " << JsonName << " does not exist!";
       exit(EXIT_FAILURE);
