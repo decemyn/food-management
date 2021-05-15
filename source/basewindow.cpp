@@ -10,12 +10,18 @@
 BaseWindow::BaseWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::BaseWindow) {
   ui->setupUi(this);
-  FileIO fio_instance("/home/decemyn/GitProjects/test.json");
-  fio_instance.writeArrayToKey("name", std::vector<std::string>{"da", "yess"});
-  // fio_instance.writeStringToKey("name", "test2");
-  for (std::string i : fio_instance.getArrayFromKey("name")) {
-    qDebug() << QString::fromStdString(i);
-  }
+  FileIO fio_instance("test2.json");
+  std::vector<std::string> array{"testing", "testedddd"};
+  fio_instance.WriteArrayToKey("test", array);
+  fio_instance.WriteStringToKey("test", "replaced");
+  fio_instance.WriteStringToKey("test", "replacedd");
+  fio_instance.WriteStringToKey("test", "replaceddddd");
+  fio_instance.WriteArrayToKey("test1", array);
+  fio_instance.WriteArrayToKey("test2", array);
+  fio_instance.WriteArrayToKey("test3", array);
+  fio_instance.WriteStringToKey("test4", "replaceddddd");
+  fio_instance.RemoveKeyFromJson("test4");
+  fio_instance.RemoveKeyFromJson("test33232");
 }
 
 BaseWindow::~BaseWindow() { delete ui; }

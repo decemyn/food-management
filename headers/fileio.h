@@ -1,6 +1,9 @@
 #ifndef FILEIO_H
 #define FILEIO_H
 #include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QStandardPaths>
 #include <fstream>
 #include <include/rapidjson/document.h>
 #include <include/rapidjson/istreamwrapper.h>
@@ -18,8 +21,16 @@ private:
   rapidjson::StringBuffer JsonBuffer{};
   rapidjson::Document JsonDocument{};
 
+  static void GenStorageDirectory();
+
+  static QDir GetStorageDirectory();
+
+  static void GenJsonFile(QString);
+
+  static QString GetJsonFile(QString);
+
 public:
-  FileIO(const std::string &);
+  FileIO(QString);
 
   virtual ~FileIO();
 
@@ -27,13 +38,15 @@ public:
 
   bool CheckForParseErrors();
 
-  const std::string getStringFromKey(std::string);
+  void RemoveKeyFromJson(std::string);
 
-  void writeStringToKey(std::string, std::string);
+  const std::string GetStringFromKey(std::string);
 
-  void writeArrayToKey(std::string, std::vector<std::string>);
+  void WriteStringToKey(std::string, std::string);
 
-  std::vector<std::string> getArrayFromKey(std::string);
+  void WriteArrayToKey(std::string, std::vector<std::string>);
+
+  std::vector<std::string> GetArrayFromKey(std::string);
 
   void RefreshDocument();
 };
