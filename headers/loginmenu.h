@@ -1,28 +1,31 @@
 #ifndef LOGINMENU_H
 #define LOGINMENU_H
-
-#include <QMainWindow>
+#include "dialoglogin.h"
 #include <QDialog>
+#include <QMainWindow>
 #include <QWidget>
 
 namespace Ui {
 class LoginMenu;
 }
 
-class LoginMenu : public QMainWindow
-{
-    Q_OBJECT
+class LoginMenu : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit LoginMenu(QWidget *parent = nullptr);
-    ~LoginMenu();
+  explicit LoginMenu(QWidget *parent = nullptr);
+  ~LoginMenu();
 
 protected:
-    void closeEvent(QCloseEvent *event) override;
+  void closeEvent(QCloseEvent *event) override;
+
+private slots:
+  void on_pushButton_clicked();
 
 private:
-    Ui::LoginMenu *ui;
-    QWidget *parent;
+  Ui::LoginMenu *ui;
+  QWidget *parent;
+  DialogLogin *dialogLogin;
 };
 
 #endif // LOGINMENU_H

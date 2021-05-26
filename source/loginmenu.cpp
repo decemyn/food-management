@@ -4,25 +4,26 @@
 #include <QMessageBox>
 #include <QtGui>
 
-LoginMenu::LoginMenu(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::LoginMenu)
-{
-    ui->setupUi(this);
-    this->parent = parent;
-    parent->hide();
-
-
+LoginMenu::LoginMenu(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::LoginMenu) {
+  ui->setupUi(this);
+  this->parent = parent;
+  parent->hide();
 }
 
-void LoginMenu::closeEvent(QCloseEvent *event){
-    this->parent->show();
+void LoginMenu::closeEvent(QCloseEvent *event) { this->parent->show(); }
 
-}
+LoginMenu::~LoginMenu() { delete ui; }
 
-
-
-LoginMenu::~LoginMenu()
-{
-    delete ui;
+void LoginMenu::on_pushButton_clicked() {
+  /*
+   * Dialog example but you also need to declare the instace in
+   DialogLogin dialogLogin;
+   dialogLogin.setModal(true);
+   dialogLogin.exec();
+   *
+   */
+  dialogLogin = new DialogLogin(this);
+  dialogLogin->show();
+  // dialogLogin->close();
 }
