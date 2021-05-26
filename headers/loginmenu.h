@@ -1,6 +1,7 @@
 #ifndef LOGINMENU_H
 #define LOGINMENU_H
 #include "dialoglogin.h"
+#include "dialogregister.h"
 #include <QDialog>
 #include <QMainWindow>
 #include <QWidget>
@@ -22,10 +23,13 @@ protected:
 private slots:
   void on_pushButton_clicked();
 
+  void on_pushButton_2_clicked();
+
 private:
   Ui::LoginMenu *ui;
   QWidget *parent;
   DialogLogin *dialogLogin;
+  DialogRegister *dialogRegister;
 };
 
 #endif // LOGINMENU_H

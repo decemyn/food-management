@@ -10,17 +10,20 @@ CONFIG += c++11
 
 SOURCES += \
     dialoglogin.cpp \
+    dialogregister.cpp \
     main.cpp \
     source/basewindow.cpp \
     source/loginmenu.cpp
 
 HEADERS += \
     dialoglogin.h \
+    dialogregister.h \
     headers/basewindow.h \
     headers/loginmenu.h
 
 FORMS += \
     dialoglogin.ui \
+    dialogregister.ui \
     ui/basewindow.ui \
     ui/loginmenu.ui
 

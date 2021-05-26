@@ -27,3 +27,8 @@ void LoginMenu::on_pushButton_clicked() {
   dialogLogin->show();
   // dialogLogin->close();
 }
+
+void LoginMenu::on_pushButton_2_clicked() {
+  dialogRegister = new DialogRegister(this);
+  dialogRegister->show();
+}
