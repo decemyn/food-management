@@ -14,14 +14,17 @@ bool UserDomain::GetUserState() { return UserDomain::AuthenticationState; }
 std::string UserDomain::GetUserName() { return UserDomain::CurrentUser; }
 
 bool UserDomain::DynamicAuthenticateUser(QString Username, QString Password) {
-  if (UserAccount::RegisterUser(Username, Password)) {
-    UserDomain::SetUserState(Username.toStdString());
-    return true;
-  } else if (UserAccount::AuthenticateUser(Username, Password)) {
-    UserDomain::SetUserState(Username.toStdString());
-    return true;
-  }
-  return false;
+  if (UserDomain::AuthenticationState == NOT_AUTHENTICATED) {
+    if (UserAccount::RegisterUser(Username, Password)) {
+      UserDomain::SetUserState(Username.toStdString());
+      return true;
+    } else if (UserAccount::AuthenticateUser(Username, Password)) {
+      UserDomain::SetUserState(Username.toStdString());
+      return true;
+    }
+    return false;
+  } else
+    return false;
 }
 
 void UserDomain::DeAuthenticateUser() { UserDomain::ClearUserState(); }
