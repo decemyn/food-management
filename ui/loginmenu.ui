@@ -17,7 +17,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Food Heaven - Login Menu</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resouces.qrc">
+    <normaloff>:/assets/hamburger_logo.png</normaloff>:/assets/hamburger_logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -89,6 +93,25 @@ padding:10 10 10 8px;
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_logout">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background:#5F5F5F;
+border: 2px solid gray;
+border-radius:10px;
+padding:10 10 10 8px;
+
+}</string>
+        </property>
+        <property name="text">
+         <string>Log out</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -99,7 +122,7 @@ padding:10 10 10 8px;
      <x>0</x>
      <y>0</y>
      <width>749</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
