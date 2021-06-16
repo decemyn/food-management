@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BaseWindow</class>
- <widget class="QMainWindow" name="BaseWindow">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
+ <class>LoginMenu</class>
+ <widget class="QMainWindow" name="LoginMenu">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>808</width>
+    <width>749</width>
     <height>600</height>
    </rect>
   </property>
@@ -20,44 +17,22 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>BaseWindow</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QLabel" name="logo">
         <property name="minimumSize">
          <size>
           <width>200</width>
-          <height>0</height>
+          <height>300</height>
          </size>
         </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background:#4F5B66;
-border: 2px solid gray;
-border-radius:10px;
-padding:0 8px;
-
-}</string>
-        </property>
-        <property name="text">
-         <string>Main Menu</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="logo">
         <property name="text">
          <string/>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
         </property>
         <property name="pixmap">
          <pixmap resource="../resouces.qrc">:/assets/hamburger_logo.png</pixmap>
@@ -68,7 +43,7 @@ padding:0 8px;
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="name">
+       <widget class="QLabel" name="label">
         <property name="font">
          <font>
           <pointsize>22</pointsize>
@@ -83,41 +58,23 @@ padding:0 8px;
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_1">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>271</width>
-          <height>22</height>
-         </size>
-        </property>
+       <widget class="QPushButton" name="pushButton">
         <property name="styleSheet">
          <string notr="true">QPushButton{
 background:#5F5F5F;
 border: 2px solid gray;
-border-radius:10px;
+border-radius:12px;
 padding:10 10 10 8px;
 
 }</string>
         </property>
         <property name="text">
-         <string>Add sold products</string>
+         <string>Login</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_2">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>22</height>
-         </size>
-        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 background:#5F5F5F;
@@ -128,32 +85,7 @@ padding:10 10 10 8px;
 }</string>
         </property>
         <property name="text">
-         <string>Statistics</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>22</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background:#5F5F5F;
-border: 2px solid gray;
-border-radius:10px;
-padding:10 10 10 8px;
-
-}</string>
-        </property>
-        <property name="text">
-         <string>Edit Product List</string>
+         <string>Register</string>
         </property>
        </widget>
       </item>
@@ -166,8 +98,8 @@ padding:10 10 10 8px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>808</width>
-     <height>23</height>
+     <width>749</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>

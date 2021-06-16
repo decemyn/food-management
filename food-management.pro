@@ -11,12 +11,19 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     source/basewindow.cpp \
+    source/dialoglogin.cpp \
+    source/dialogregister.cpp \
+    source/loginmenu.cpp
     source/fileio.cpp \
     source/product.cpp \
     source/useraccount.cpp \
     source/userdomain.cpp
 
 HEADERS += \
+    headers/basewindow.h \
+    headers/dialoglogin.h \
+    headers/dialogregister.h \
+    headers/loginmenu.h
     headers/basewindow.h \
     headers/fileio.h \
     headers/product.h \
@@ -59,12 +66,22 @@ HEADERS += \
     include/rapidjson/writer.h
 
 FORMS += \
-    ui/basewindow.ui
+    ui/basewindow.ui \
+    ui/dialoglogin.ui \
+    ui/dialogregister.ui \
+    ui/loginmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
+DISTFILES += \
+    assets/hamburger_logo.png
+
+RESOURCES += \
+    resouces.qrc
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../usr/local/lib/release/ -lsodium
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../usr/local/lib/debug/ -lsodium
