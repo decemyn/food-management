@@ -13,8 +13,8 @@ SOURCES += \
     source/basewindow.cpp \
     source/dialoglogin.cpp \
     source/dialogregister.cpp \
-    source/loginmenu.cpp
     source/fileio.cpp \
+    source/loginmenu.cpp \
     source/product.cpp \
     source/useraccount.cpp \
     source/userdomain.cpp
@@ -23,9 +23,8 @@ HEADERS += \
     headers/basewindow.h \
     headers/dialoglogin.h \
     headers/dialogregister.h \
-    headers/loginmenu.h
-    headers/basewindow.h \
     headers/fileio.h \
+    headers/loginmenu.h \
     headers/product.h \
     headers/useraccount.h \
     headers/userdomain.h \
