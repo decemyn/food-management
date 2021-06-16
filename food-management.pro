@@ -12,12 +12,16 @@ SOURCES += \
     main.cpp \
     source/basewindow.cpp \
     source/fileio.cpp \
-    source/product.cpp
+    source/product.cpp \
+    source/useraccount.cpp \
+    source/userdomain.cpp
 
 HEADERS += \
     headers/basewindow.h \
     headers/fileio.h \
     headers/product.h \
+    headers/useraccount.h \
+    headers/userdomain.h \
     include/rapidjson/allocators.h \
     include/rapidjson/document.h \
     include/rapidjson/encodedstream.h \
@@ -61,3 +65,16 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../usr/local/lib/release/ -lsodium
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../usr/local/lib/debug/ -lsodium
+else:unix: LIBS += -L$$PWD/../../../../usr/local/lib/ -lsodium
+
+INCLUDEPATH += $$PWD/../../../../usr/local/include
+DEPENDPATH += $$PWD/../../../../usr/local/include
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../../usr/local/lib/release/libsodium.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../../usr/local/lib/debug/libsodium.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../../usr/local/lib/release/sodium.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../../usr/local/lib/debug/sodium.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../../../usr/local/lib/libsodium.a

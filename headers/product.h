@@ -1,6 +1,7 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 #include <QDebug>
+#include <headers/fileio.h>
 #include <string>
 class Product {
 protected:
@@ -9,6 +10,12 @@ protected:
 
 public:
   Product(int ID, int price = -1, int KCal = -1, std::string ProductName = "");
+
+  static int GenerateProductID();
+
+  virtual void FlushProductJson();
+
+  virtual void LoadProductJson();
 
   virtual void PrintProduct(QDebug) const;
 
@@ -39,7 +46,11 @@ public:
   Food(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
        int Weight = -1);
 
-  virtual void PrintProduct(QDebug) const;
+  void FlushProductJson();
+
+  void LoadProductJson();
+
+  void PrintProduct(QDebug) const;
 
   int getWeight();
 
@@ -54,7 +65,11 @@ public:
   Drink(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
         int Volume = -1);
 
-  virtual void PrintProduct(QDebug) const;
+  void FlushProductJson();
+
+  void LoadProductJson();
+
+  void PrintProduct(QDebug) const;
 
   int getVolume();
 

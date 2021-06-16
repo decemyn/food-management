@@ -47,7 +47,12 @@ bool FileIO::CheckForParseErrors() {
 }
 
 const std::string FileIO::GetStringFromKey(std::string key) {
-  return this->JsonDocument[key.c_str()].GetString();
+  rapidjson::Value KeyValue;
+  KeyValue.SetString(rapidjson::StringRef(key.c_str()));
+  if (this->JsonDocument.HasMember(KeyValue))
+    return this->JsonDocument[KeyValue].GetString();
+  else
+    return "";
 }
 
 void FileIO::WriteStringToKey(std::string key, std::string value) {
@@ -123,12 +128,16 @@ void FileIO::WriteArrayToKey(std::string key, std::vector<std::string> value) {
 }
 
 std::vector<std::string> FileIO::GetArrayFromKey(std::string key) {
+  rapidjson::Value KeyValue;
+  KeyValue.SetString(rapidjson::StringRef(key.c_str()));
   std::vector<std::string> ReturnArray;
-  for (rapidjson::SizeType itr = 0;
-       itr < this->JsonDocument[key.c_str()].GetArray().Size(); itr++) {
-    std::string UnpackedString =
-        this->JsonDocument[key.c_str()].GetArray()[itr].GetString();
-    ReturnArray.push_back(UnpackedString);
+  if (this->JsonDocument.HasMember(KeyValue)) {
+    for (rapidjson::SizeType itr = 0;
+         itr < this->JsonDocument[KeyValue].GetArray().Size(); itr++) {
+      std::string UnpackedString =
+          this->JsonDocument[KeyValue].GetArray()[itr].GetString();
+      ReturnArray.push_back(UnpackedString);
+    }
   }
   return ReturnArray;
 }
