@@ -1,7 +1,7 @@
 #ifndef LOGINMENU_H
 #define LOGINMENU_H
-#include "dialoglogin.h"
-#include "dialogregister.h"
+#include "headers/dialoglogin.h"
+#include "headers/dialogregister.h"
 #include <QDialog>
 #include <QMainWindow>
 #include <QWidget>

@@ -9,22 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    dialoglogin.cpp \
-    dialogregister.cpp \
     main.cpp \
     source/basewindow.cpp \
+    source/dialoglogin.cpp \
+    source/dialogregister.cpp \
     source/loginmenu.cpp
 
 HEADERS += \
-    dialoglogin.h \
-    dialogregister.h \
     headers/basewindow.h \
+    headers/dialoglogin.h \
+    headers/dialogregister.h \
     headers/loginmenu.h
 
 FORMS += \
-    dialoglogin.ui \
-    dialogregister.ui \
     ui/basewindow.ui \
+    ui/dialoglogin.ui \
+    ui/dialogregister.ui \
     ui/loginmenu.ui
 
 # Default rules for deployment.

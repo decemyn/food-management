@@ -1,4 +1,4 @@
-#include "dialogregister.h"
+#include "headers/dialogregister.h"
 #include "ui_dialogregister.h"
 #include <QMessageBox>
 
