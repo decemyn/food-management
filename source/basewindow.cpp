@@ -21,9 +21,4 @@ void BaseWindow::on_pushButton_clicked()
     // creating a new instance
     LoginMenu *login = new LoginMenu(this);
     login->show(); // this is how to display a new window
-
-
-
 }
-
-
