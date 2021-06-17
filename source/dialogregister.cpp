@@ -24,6 +24,9 @@ void DialogRegister::on_pushButton_register_clicked() {
     if (UserDomain::DynamicAuthenticateUser(username, password, true) == true) {
       QMessageBox::information(this, "Register",
                                "Te-ai inregistrat cu succes!");
+      this->parent
+          ->close(); // am adugat asta ca dupa register sa te bage direct in
+                     // main menu si daca vrea da dea log ou trebuie sa intre
       LoginMenu *LoginMenuObj = qobject_cast<LoginMenu *>(this->parent);
       if (LoginMenuObj != 0) {
         LoginMenuObj->UiSetButtonStates(false);

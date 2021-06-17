@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>500</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>500</height>
+    <height>450</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>500</width>
-    <height>500</height>
+    <height>450</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -69,7 +69,7 @@
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Username</string>
+          <string>Nume</string>
          </property>
         </widget>
        </item>
@@ -90,7 +90,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Password</string>
+          <string>Parola</string>
          </property>
         </widget>
        </item>

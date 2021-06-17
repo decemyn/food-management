@@ -21,6 +21,7 @@ void DialogLogin::on_pushButton_clicked() {
       LoginMenuObj->UiSetButtonStates(false);
     }
     this->close();
+    this->parent->close(); // same here :3
   } else {
     QMessageBox::warning(this, "Login", "Eroare la autentificare!");
     ui->lineEdit_username->setText(QString(""));
