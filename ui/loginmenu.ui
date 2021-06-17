@@ -72,7 +72,11 @@ padding:10 10 10 8px;
 
 }
 QPushButton::pressed{
-border: 2px solid white;
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
         </property>
         <property name="text">
@@ -86,12 +90,16 @@ border: 2px solid white;
          <string notr="true">QPushButton{
 background:#5F5F5F;
 border: 2px solid gray;
-border-radius:10px;
+border-radius:12px;
 padding:10 10 10 8px;
 
 }
 QPushButton::pressed{
-border: 2px solid white;
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
         </property>
         <property name="text">
@@ -108,12 +116,16 @@ border: 2px solid white;
          <string notr="true">QPushButton{
 background:#5F5F5F;
 border: 2px solid gray;
-border-radius:10px;
+border-radius:12px;
 padding:10 10 10 8px;
 
 }
 QPushButton::pressed{
-border: 2px solid white;
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
         </property>
         <property name="text">

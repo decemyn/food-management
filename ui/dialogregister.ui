@@ -38,25 +38,46 @@
      <height>301</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
    <property name="title">
-    <string>Register</string>
+    <string>Inregistrare</string>
    </property>
    <widget class="QPushButton" name="pushButton_register">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>230</y>
-      <width>111</width>
-      <height>37</height>
+      <x>300</x>
+      <y>240</y>
+      <width>131</width>
+      <height>48</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton::pressed{
-border: 2px solid white;
+     <string notr="true">QPushButton{
+background:#5F5F5F;
+border: 2px solid gray;
+border-radius:12px;
+padding:10 10 10 8px;
+
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
     </property>
     <property name="text">
-     <string>Register</string>
+     <string>Inregistrare</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -65,7 +86,7 @@ border: 2px solid white;
       <x>30</x>
       <y>70</y>
       <width>401</width>
-      <height>126</height>
+      <height>165</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -73,6 +94,11 @@ border: 2px solid white;
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Nume</string>
          </property>
@@ -94,6 +120,11 @@ border: 2px solid white;
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <widget class="QLabel" name="label_password">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Parola</string>
          </property>
@@ -118,6 +149,11 @@ border: 2px solid white;
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Confirmare parola</string>
          </property>
