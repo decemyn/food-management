@@ -14,6 +14,6 @@ private:
 
 public:
   static std::string GenerateCurrentDate();
-  static void GenerateProductSale(Product *, int);
+  static bool GenerateProductSale(Product *, int);
 };
 #endif // SALEINTERFACE_H

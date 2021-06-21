@@ -14,6 +14,9 @@ LoginMenu::LoginMenu(QWidget *parent, Ui::BaseWindow *ui_parent)
 void LoginMenu::closeEvent(QCloseEvent *event) {
   this->parent->show();
   UserDomain::UiSetUserName(this->ui_parent->currentUsername);
+  UserDomain::UiButtonEnabler(this->ui_parent->pushButton_1);
+  UserDomain::UiButtonEnabler(this->ui_parent->pushButton_2);
+  UserDomain::UiButtonEnabler(this->ui_parent->pushButton_3);
 }
 
 LoginMenu::~LoginMenu() { delete ui; }

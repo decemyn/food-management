@@ -15,7 +15,8 @@ void BaseWindow::on_pushButton_clicked() {
 }
 
 void BaseWindow::on_pushButton_3_clicked() {
-  ProductAdder *product_adder = new ProductAdder(this);
+  this->ui->pushButton_3->setEnabled(false);
+  ProductAdder *product_adder = new ProductAdder(this, this->ui);
   product_adder->show();
 }
 

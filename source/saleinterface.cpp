@@ -2,7 +2,7 @@
 std::string SaleInterface::GenerateCurrentDate() {
   return QDate::currentDate().toString("dd/MM/yyyy").toStdString();
 }
-void SaleInterface::GenerateProductSale(Product *SoldProduct, int Quantity) {
+bool SaleInterface::GenerateProductSale(Product *SoldProduct, int Quantity) {
   FileIO JsonWriterReader("sold_products.json");
   std::string CurrentDate = SaleInterface::GenerateCurrentDate();
   std::vector<std::string> SoldProductsFromCurrentDate =
@@ -31,4 +31,5 @@ void SaleInterface::GenerateProductSale(Product *SoldProduct, int Quantity) {
                 << SoldProduct->getID();
     exit(EXIT_FAILURE);
   }
+  return true;
 }

@@ -16,7 +16,9 @@ public:
 
   static Product *LoadProductGenericInterface(int);
 
-  virtual void FlushProductJson();
+  static int GetNumberOfProducts();
+
+  virtual bool FlushProductJson();
 
   virtual void LoadProductJson();
 
@@ -53,7 +55,7 @@ public:
   Food(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
        int Weight = -1);
 
-  void FlushProductJson();
+  bool FlushProductJson();
 
   void LoadProductJson();
 
@@ -72,7 +74,7 @@ public:
   Drink(int ID, int price = -1, int KCal = -1, std::string ProductName = "",
         int Volume = -1);
 
-  void FlushProductJson();
+  bool FlushProductJson();
 
   void LoadProductJson();
 
