@@ -1,6 +1,33 @@
 #include "headers/saleinterface.h"
 std::string SaleInterface::GenerateCurrentDate() {
-  return QDate::currentDate().toString("dd/MM/yyyy").toStdString();
+  std::string CurrentDate =
+      QDate::currentDate().toString("dd/MM/yyyy").toStdString();
+  FileIO JsonWriterReader("meta.json");
+  try {
+    std::vector<std::string> DatesArray =
+        JsonWriterReader.GetArrayFromKey("sale_dates");
+    if (DatesArray.size()) {
+      bool FoundCurrentDate = false;
+      for (auto Date : DatesArray) {
+        if (Date == CurrentDate) {
+          FoundCurrentDate = true;
+          break;
+        }
+      }
+      if (FoundCurrentDate == false) {
+        DatesArray.push_back(CurrentDate);
+        JsonWriterReader.WriteArrayToKey("sale_dates", DatesArray);
+      }
+    } else {
+      std::vector<std::string> DatesArray = {};
+      DatesArray.push_back(CurrentDate);
+      JsonWriterReader.WriteArrayToKey("sale_dates", DatesArray);
+    }
+  } catch (...) {
+    qCritical() << "Failed to write current date in the meta json!";
+    exit(EXIT_FAILURE);
+  }
+  return CurrentDate;
 }
 bool SaleInterface::GenerateProductSale(Product *SoldProduct, int Quantity) {
   FileIO JsonWriterReader("sold_products.json");

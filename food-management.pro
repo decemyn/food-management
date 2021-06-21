@@ -20,6 +20,7 @@ SOURCES += \
     source/loginmenu.cpp \
     source/product.cpp \
     source/saleinterface.cpp \
+    source/statisticsinterface.cpp \
     source/useraccount.cpp \
     source/userdomain.cpp
 
@@ -31,6 +32,7 @@ HEADERS += \
     headers/loginmenu.h \
     headers/product.h \
     headers/saleinterface.h \
+    headers/statisticsinterface.h \
     headers/useraccount.h \
     headers/userdomain.h \
     headers/sellregister.h \

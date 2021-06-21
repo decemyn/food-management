@@ -10,9 +10,9 @@ class SaleInterface {
 private:
   inline static const std::string QuantityFormatting = "Quantity:";
   inline static const std::string UsernameFormatting = "User:";
-  int ProductModulus = 3;
 
 public:
+  inline static const int ProductModulus = 3;
   static std::string GenerateCurrentDate();
   static bool GenerateProductSale(Product *, int);
 };
