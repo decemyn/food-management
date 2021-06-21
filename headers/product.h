@@ -7,11 +7,14 @@ class Product {
 protected:
   int ID, Price, KCal;
   std::string ProductName;
+  std::string ProductType;
 
 public:
   Product(int ID, int price = -1, int KCal = -1, std::string ProductName = "");
 
   static int GenerateProductID();
+
+  static Product *LoadProductGenericInterface(int);
 
   virtual void FlushProductJson();
 
@@ -36,6 +39,10 @@ public:
   std::string getProductName();
 
   void setProductName(std::string);
+
+  std::string getProductType();
+
+  void setProductType(std::string);
 };
 
 class Food : public Product {

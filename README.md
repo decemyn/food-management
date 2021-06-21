@@ -10,12 +10,41 @@ ziua respectivă.
   media cantităților comandate pentru fiecare produs în parte etc.!
 
 # Documentation
-
+---
+## UserDomain documentation
+### Documentation for the UserDomain class.
+---
 ## UserDomain::DynamicAuthenticateUser(Username,Password)
 #### This static method dynamicly authenticates the user (registers/authenticates).
 ## UserDomain::DeAuthenticateUser()
-#### This static method deauthenticates the user.
+#### This static method deauthenticates the user.z
 ## UserDomain::GetUserState()
 #### This static method returns the current user's authenthication state (AUTHENTICATED/NOT_AUTHENTICATED).
 ## UserDomain::GetUserName()
 #### This static method returns the current authenticated username.
+## UserDomain::AUTHENTICATED
+#### This static class attribute, probes in a conditional statement if the user state is authentiacted.
+## UserDomain::NOT_AUTHENTICATED
+#### This static class attribute, probes in a conditional statement if the user state is not authentiacted.
+---
+## Product documentation
+### Documentation for the Product class.
+---
+## Product::LoadProductGenericInterface(ID)
+#### This static generic interface automatically determines the product type and returns the appropriate pointer type for the product.
+## Product::GenerateProductID()
+#### This static method automatically generates the next product ID, by reading the meta.json file.
+## Product/Food/Drink::FlushProductJson() - VIRTUAL
+#### This instanced method flushes the product information to the products json.
+## Product/Food/Drink::LoadProductJson() - VIRTUAL
+#### This instanced method loads the product information from the products json.
+## Product/Food/Drink::PrintProduct(QT_STREAM) - VIRTUAL
+#### This instanced method prints the product information to a supplied QT output stream.
+---
+## SaleInterface documentation
+### Documentation for the SaleInterface class.
+---
+## SaleInterface::GenerateProductSale(Product*,Quantity)
+#### This static method generates a product sale for the current date in the sold_products.json file.
+## SaleInterface::GenerateCurrentDate()
+#### This static method returns the date at the time of execution.
