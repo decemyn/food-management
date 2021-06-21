@@ -11,13 +11,15 @@ SellRegister::~SellRegister() { delete ui; }
 void SellRegister::on_pushButton_clicked() {
   if (isNumber(this->ui->lineEdit->text().toStdString())) {
     for (auto Product : this->ProductArray) {
-      if (Product->getProductName() ==
+      if ((Product->getProductName() +
+           " ID:" + std::to_string(Product->getID())) ==
           this->ui->comboBox->currentText().toStdString()) {
         if (SaleInterface::GenerateProductSale(
                 Product, std::stoi(this->ui->lineEdit->text().toStdString()))) {
           QMessageBox::warning(this, "Vânzare produse",
                                "Vânzare efectuată cu succes!");
           this->ui->lineEdit->setText("");
+          break;
         }
       }
     }
@@ -48,12 +50,14 @@ void SellRegister::LoadProductsComboBox() {
       if (this->ui->checkBox->isChecked()) {
         if (dynamic_cast<Drink *>(Product)) {
           this->ui->comboBox->addItem(
-              QString::fromStdString(Product->getProductName()));
+              QString::fromStdString(Product->getProductName()) + " ID:" +
+              QString::fromStdString(std::to_string(Product->getID())));
         }
       } else {
         if (dynamic_cast<Food *>(Product)) {
           this->ui->comboBox->addItem(
-              QString::fromStdString(Product->getProductName()));
+              QString::fromStdString(Product->getProductName()) + " ID:" +
+              QString::fromStdString(std::to_string(Product->getID())));
         }
       }
     }
