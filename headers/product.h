@@ -16,6 +16,8 @@ public:
 
   static Product *LoadProductGenericInterface(int);
 
+  static int GetNumberOfProducts();
+
   virtual bool FlushProductJson();
 
   virtual void LoadProductJson();

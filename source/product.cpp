@@ -208,3 +208,14 @@ Product *Product::LoadProductGenericInterface(int ID) {
   }
   return GenericProduct;
 }
+
+int Product::GetNumberOfProducts() {
+  FileIO JsonWriterReader("meta.json");
+  std::string NumberOfProducts =
+      JsonWriterReader.GetStringFromKey("number_of_products");
+  if (NumberOfProducts.empty()) {
+    return 0;
+  } else {
+    return std::stoi(NumberOfProducts) + 1;
+  }
+}

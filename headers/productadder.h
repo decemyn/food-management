@@ -17,6 +17,8 @@ public:
                         Ui::BaseWindow *ui_parent = nullptr);
   ~ProductAdder();
 
+  static bool isNumber(std::string);
+
 protected:
   void closeEvent(QCloseEvent *event) override;
 
@@ -25,8 +27,6 @@ private slots:
   void on_drink_checkbox_clicked();
 
   void on_pushButton_addProd_clicked();
-
-  static bool isNumber(std::string);
 
 private:
   Ui::ProductAdder *ui;
