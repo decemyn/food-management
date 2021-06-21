@@ -196,6 +196,27 @@ cp;pr:#5F5F5F;
       </item>
      </layout>
     </widget>
+    <widget class="QPushButton" name="pushButton_product_info">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background:#5F5F5F;
+border: 2px solid gray;
+border-radius:12px;
+padding:10 10 10 8px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Informatii produs</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
@@ -228,7 +249,7 @@ cp;pr:#5F5F5F;
      <x>0</x>
      <y>0</y>
      <width>597</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>
