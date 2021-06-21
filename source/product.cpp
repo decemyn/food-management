@@ -76,39 +76,57 @@ void Drink::PrintProduct(QDebug debug) const {
 
 QDebug operator<<(QDebug debug, const Product &obj) { obj.PrintProduct(debug); }
 
-void Product::FlushProductJson() {
+bool Product::FlushProductJson() {
   FileIO JsonWriterReader("products.json");
-  std::vector<std::string> ProductInformation = {};
-  ProductInformation.push_back(std::to_string(this->Price));
-  ProductInformation.push_back(std::to_string(this->KCal));
-  ProductInformation.push_back(this->ProductName);
-  ProductInformation.push_back(this->ProductType);
-  JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
-                                   ProductInformation);
+  try {
+    std::vector<std::string> ProductInformation = {};
+    ProductInformation.push_back(std::to_string(this->Price));
+    ProductInformation.push_back(std::to_string(this->KCal));
+    ProductInformation.push_back(this->ProductName);
+    ProductInformation.push_back(this->ProductType);
+    JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
+                                     ProductInformation);
+  } catch (...) {
+    qCritical() << "Error while flushing product with ID " << this->ID;
+    exit(EXIT_FAILURE);
+  }
+  return true;
 }
 
-void Food::FlushProductJson() {
+bool Food::FlushProductJson() {
   FileIO JsonWriterReader("products.json");
-  std::vector<std::string> ProductInformation = {};
-  ProductInformation.push_back(std::to_string(this->Price));
-  ProductInformation.push_back(std::to_string(this->KCal));
-  ProductInformation.push_back(this->ProductName);
-  ProductInformation.push_back(std::to_string(this->Weight));
-  ProductInformation.push_back(this->ProductType);
-  JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
-                                   ProductInformation);
+  try {
+    std::vector<std::string> ProductInformation = {};
+    ProductInformation.push_back(std::to_string(this->Price));
+    ProductInformation.push_back(std::to_string(this->KCal));
+    ProductInformation.push_back(this->ProductName);
+    ProductInformation.push_back(std::to_string(this->Weight));
+    ProductInformation.push_back(this->ProductType);
+    JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
+                                     ProductInformation);
+  } catch (...) {
+    qCritical() << "Error while flushing product with ID " << this->ID;
+    exit(EXIT_FAILURE);
+  }
+  return true;
 }
 
-void Drink::FlushProductJson() {
+bool Drink::FlushProductJson() {
   FileIO JsonWriterReader("products.json");
-  std::vector<std::string> ProductInformation = {};
-  ProductInformation.push_back(std::to_string(this->Price));
-  ProductInformation.push_back(std::to_string(this->KCal));
-  ProductInformation.push_back(this->ProductName);
-  ProductInformation.push_back(std::to_string(this->Volume));
-  ProductInformation.push_back(this->ProductType);
-  JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
-                                   ProductInformation);
+  try {
+    std::vector<std::string> ProductInformation = {};
+    ProductInformation.push_back(std::to_string(this->Price));
+    ProductInformation.push_back(std::to_string(this->KCal));
+    ProductInformation.push_back(this->ProductName);
+    ProductInformation.push_back(std::to_string(this->Volume));
+    ProductInformation.push_back(this->ProductType);
+    JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
+                                     ProductInformation);
+  } catch (...) {
+    qCritical() << "Error while flushing product with ID " << this->ID;
+    exit(EXIT_FAILURE);
+  }
+  return true;
 }
 
 void Product::LoadProductJson() {
@@ -161,8 +179,11 @@ int Product::GenerateProductID() {
     JsonWriterReader.WriteStringToKey("number_of_products", "0");
     return 0;
   } else {
-    return std::stoi(JsonWriterReader.GetStringFromKey("number_of_products")) +
-           1;
+    int NumberOfProducts =
+        std::stoi(JsonWriterReader.GetStringFromKey("number_of_products")) + 1;
+    JsonWriterReader.WriteStringToKey("number_of_products",
+                                      std::to_string(NumberOfProducts));
+    return NumberOfProducts;
   }
 }
 

@@ -41,3 +41,11 @@ void UserDomain::UiSetUserName(QLabel *UsernameLabel) {
     UsernameLabel->setText(QString::fromStdString(UsernameText));
   }
 }
+
+void UserDomain::UiButtonEnabler(QPushButton *ButtonLabel) {
+  if (UserDomain::AuthenticationState == AUTHENTICATED) {
+    ButtonLabel->setEnabled(true);
+  } else {
+    ButtonLabel->setEnabled(false);
+  }
+}

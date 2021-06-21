@@ -4,6 +4,7 @@
 #define NOT_AUTHENTICATED false
 #define AUTHENTICATED true
 #include <QLabel>
+#include <QPushButton>
 #include <headers/useraccount.h>
 class UserDomain : private UserAccount {
 private:
@@ -22,6 +23,8 @@ public:
   static std::string GetUserName();
 
   static void UiSetUserName(QLabel *);
+
+  static void UiButtonEnabler(QPushButton *);
 
   static void DeAuthenticateUser();
 };
