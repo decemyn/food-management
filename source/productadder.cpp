@@ -88,5 +88,6 @@ bool ProductAdder::isNumber(std::string s) {
 }
 
 void ProductAdder::closeEvent(QCloseEvent *event) {
+  this->ui_parent->pushButton->setEnabled(true);
   this->ui_parent->pushButton_3->setEnabled(true);
 }

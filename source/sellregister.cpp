@@ -1,9 +1,10 @@
 #include "headers/sellregister.h"
 #include "ui_sellregister.h"
 
-SellRegister::SellRegister(QWidget *parent)
+SellRegister::SellRegister(QWidget *parent, Ui::BaseWindow *ui_parent)
     : QMainWindow(parent), ui(new Ui::SellRegister) {
   ui->setupUi(this);
+  this->ui_parent = ui_parent;
 }
 
 SellRegister::~SellRegister() { delete ui; }
@@ -79,4 +80,21 @@ bool SellRegister::isNumber(std::string s) {
   return !s.empty() && std::find_if(s.begin(), s.end(), [](unsigned char c) {
                          return !std::isdigit(c);
                        }) == s.end();
+}
+
+void SellRegister::on_pushButton_product_info_clicked() {
+  for (auto Product : ProductArray) {
+    if ((Product->getProductName() +
+         " ID:" + std::to_string(Product->getID())) ==
+        this->ui->comboBox->currentText().toStdString()) {
+      ProductDetails *product_details = new ProductDetails(this, Product);
+      product_details->show();
+      break;
+    }
+  }
+}
+
+void SellRegister::closeEvent(QCloseEvent *event) {
+  this->ui_parent->pushButton->setEnabled(true);
+  this->ui_parent->pushButton_1->setEnabled(true);
 }
