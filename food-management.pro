@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    source/productadder.cpp \
+    source/sellregister.cpp \
     source/basewindow.cpp \
     source/dialoglogin.cpp \
     source/dialogregister.cpp \
@@ -30,6 +32,8 @@ HEADERS += \
     headers/saleinterface.h \
     headers/useraccount.h \
     headers/userdomain.h \
+    headers/sellregister.h \
+    headers/productadder.h \
     include/rapidjson/allocators.h \
     include/rapidjson/document.h \
     include/rapidjson/encodedstream.h \
@@ -64,9 +68,13 @@ HEADERS += \
     include/rapidjson/schema.h \
     include/rapidjson/stream.h \
     include/rapidjson/stringbuffer.h \
-    include/rapidjson/writer.h
+    include/rapidjson/writer.h \
+
+
 
 FORMS += \
+    ui/productadder.ui \
+    ui/sellregister.ui \
     ui/basewindow.ui \
     ui/dialoglogin.ui \
     ui/dialogregister.ui \

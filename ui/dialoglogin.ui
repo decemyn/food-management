@@ -67,6 +67,11 @@
       <height>30</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background:#5F5F5F;
@@ -93,7 +98,7 @@ QPushButton::hover{
       <x>30</x>
       <y>60</y>
       <width>301</width>
-      <height>108</height>
+      <height>109</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">

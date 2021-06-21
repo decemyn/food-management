@@ -13,3 +13,13 @@ void BaseWindow::on_pushButton_clicked() {
   LoginMenu *login = new LoginMenu(this, this->ui);
   login->show();
 }
+
+void BaseWindow::on_pushButton_3_clicked() {
+  ProductAdder *product_adder = new ProductAdder(this);
+  product_adder->show();
+}
+
+void BaseWindow::on_pushButton_1_clicked() {
+  SellRegister *sell_product = new SellRegister(this);
+  sell_product->show();
+}
