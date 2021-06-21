@@ -16,11 +16,14 @@ void BaseWindow::on_pushButton_clicked() {
 
 void BaseWindow::on_pushButton_3_clicked() {
   this->ui->pushButton_3->setEnabled(false);
+  this->ui->pushButton->setEnabled(false);
   ProductAdder *product_adder = new ProductAdder(this, this->ui);
   product_adder->show();
 }
 
 void BaseWindow::on_pushButton_1_clicked() {
-  SellRegister *sell_product = new SellRegister(this);
+  this->ui->pushButton_1->setEnabled(false);
+  this->ui->pushButton->setEnabled(false);
+  SellRegister *sell_product = new SellRegister(this, this->ui);
   sell_product->show();
 }
