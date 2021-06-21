@@ -17,7 +17,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Food Heaven - Login Menu</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resouces.qrc">
+    <normaloff>:/assets/hamburger_logo.png</normaloff>:/assets/hamburger_logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -66,10 +70,17 @@ border: 2px solid gray;
 border-radius:12px;
 padding:10 10 10 8px;
 
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
         </property>
         <property name="text">
-         <string>Login</string>
+         <string>Logare</string>
         </property>
        </widget>
       </item>
@@ -79,13 +90,46 @@ padding:10 10 10 8px;
          <string notr="true">QPushButton{
 background:#5F5F5F;
 border: 2px solid gray;
-border-radius:10px;
+border-radius:12px;
 padding:10 10 10 8px;
 
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
         </property>
         <property name="text">
-         <string>Register</string>
+         <string>Inregistrare</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_logout">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background:#5F5F5F;
+border: 2px solid gray;
+border-radius:12px;
+padding:10 10 10 8px;
+
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
+}</string>
+        </property>
+        <property name="text">
+         <string>Deconectați-vă</string>
         </property>
        </widget>
       </item>

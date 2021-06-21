@@ -3,6 +3,7 @@
 #define EMPTY_USER ""
 #define NOT_AUTHENTICATED false
 #define AUTHENTICATED true
+#include <QLabel>
 #include <headers/useraccount.h>
 class UserDomain : private UserAccount {
 private:
@@ -14,11 +15,13 @@ private:
   static void SetUserState(std::string);
 
 public:
-  static bool DynamicAuthenticateUser(QString, QString);
+  static bool DynamicAuthenticateUser(QString, QString, bool);
 
   static bool GetUserState();
 
   static std::string GetUserName();
+
+  static void UiSetUserName(QLabel *);
 
   static void DeAuthenticateUser();
 };

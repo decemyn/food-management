@@ -13,11 +13,14 @@ bool UserDomain::GetUserState() { return UserDomain::AuthenticationState; }
 
 std::string UserDomain::GetUserName() { return UserDomain::CurrentUser; }
 
-bool UserDomain::DynamicAuthenticateUser(QString Username, QString Password) {
+bool UserDomain::DynamicAuthenticateUser(QString Username, QString Password,
+                                         bool Register) {
   if (UserDomain::AuthenticationState == NOT_AUTHENTICATED) {
-    if (UserAccount::RegisterUser(Username, Password)) {
-      UserDomain::SetUserState(Username.toStdString());
-      return true;
+    if (Register == true) {
+      if (UserAccount::RegisterUser(Username, Password)) {
+        UserDomain::SetUserState(Username.toStdString());
+        return true;
+      }
     } else if (UserAccount::AuthenticateUser(Username, Password)) {
       UserDomain::SetUserState(Username.toStdString());
       return true;
@@ -28,3 +31,13 @@ bool UserDomain::DynamicAuthenticateUser(QString Username, QString Password) {
 }
 
 void UserDomain::DeAuthenticateUser() { UserDomain::ClearUserState(); }
+
+void UserDomain::UiSetUserName(QLabel *UsernameLabel) {
+  if (UserDomain::AuthenticationState == AUTHENTICATED) {
+    std::string UsernameText = "Salut, " + UserDomain::GetUserName() + "!";
+    UsernameLabel->setText(QString::fromStdString(UsernameText));
+  } else {
+    std::string UsernameText = "Nu ești autentificat!";
+    UsernameLabel->setText(QString::fromStdString(UsernameText));
+  }
+}

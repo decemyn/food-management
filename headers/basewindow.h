@@ -1,8 +1,8 @@
 #ifndef BASEWINDOW_H
 #define BASEWINDOW_H
+#include "headers/loginmenu.h"
 #include <QMainWindow>
 #include <QPixmap>
-#include "headers/loginmenu.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class BaseWindow;
@@ -17,10 +17,9 @@ public:
   ~BaseWindow();
 
 private slots:
-    void on_pushButton_clicked();
+  void on_pushButton_clicked();
 
 private:
-    Ui::BaseWindow *ui;
-    
+  Ui::BaseWindow *ui;
 };
 #endif // BASEWINDOW_H
