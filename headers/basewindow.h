@@ -3,6 +3,7 @@
 #include "headers/loginmenu.h"
 #include "headers/productadder.h"
 #include "headers/sellregister.h"
+#include "headers/statisticsmenu.h"
 #include <QMainWindow>
 #include <QPixmap>
 QT_BEGIN_NAMESPACE
@@ -24,6 +25,8 @@ private slots:
   void on_pushButton_1_clicked();
 
   void on_pushButton_3_clicked();
+
+  void on_pushButton_2_clicked();
 
 private:
   Ui::BaseWindow *ui;

@@ -50,3 +50,15 @@ ziua respectivă.
 #### This static method generates a product sale for the current date in the sold_products.json file.
 ## SaleInterface::GenerateCurrentDate()
 #### This static method returns the date at the time of execution.
+---
+## StatisticsInferface documentation
+### Documentation for the StatisticsInferface class.
+---
+## StatisticsInferface::GetSoldProductsByDate(DateString)
+#### This static method returns a std::vector of sold products in a certain date from the sold_products.json file.
+## StatisticsInferface::GetProfitFromProductArray(SoldProductsArray)
+#### This static method returns a the profit of the sold products in a certain date from a sold products array.
+## StatisticsInferface::GetMostProfitableDay()
+#### This static method returns the most profitable day.
+## StatisticsInferface::GetMostSoldProduct()
+#### This static method returns the most sold product.

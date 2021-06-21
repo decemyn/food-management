@@ -27,3 +27,10 @@ void BaseWindow::on_pushButton_1_clicked() {
   SellRegister *sell_product = new SellRegister(this, this->ui);
   sell_product->show();
 }
+
+void BaseWindow::on_pushButton_2_clicked() {
+  this->ui->pushButton_2->setEnabled(false);
+  this->ui->pushButton->setEnabled(false);
+  StatisticsMenu *statistics_menu = new StatisticsMenu(this, this->ui);
+  statistics_menu->show();
+}

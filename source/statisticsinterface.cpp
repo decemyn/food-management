@@ -51,7 +51,11 @@ std::string StatisticsInterface::GetMostProfitableDay() {
                    "meta.json file";
     exit(EXIT_FAILURE);
   }
-  return MaxProfitDate + " " + std::to_string(MaxProfitDay);
+  if (MaxProfitDate.empty() == false) {
+    return MaxProfitDate + " Profit: " + std::to_string(MaxProfitDay);
+  } else {
+    return "Nu există vânzări înregistrate!";
+  }
 }
 
 Product *StatisticsInterface::GetMostSoldProduct() {
@@ -63,8 +67,9 @@ Product *StatisticsInterface::GetMostSoldProduct() {
     std::vector<std::string> SaleDates =
         JsonWriterReader.GetArrayFromKey("sale_dates");
     for (auto Date : SaleDates) {
-      for (auto CurrentProduct :
-           StatisticsInterface::GetSoldProductsByDate(Date)) {
+      std::vector<Product *> SoldProductsArray =
+          StatisticsInterface::GetSoldProductsByDate(Date);
+      for (auto CurrentProduct : SoldProductsArray) {
         if (ProductFreqMap.count(CurrentProduct->getID()) == 1) {
           ProductFreqMap.at(CurrentProduct->getID()) += 1;
         } else {
