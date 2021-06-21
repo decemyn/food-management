@@ -6,16 +6,19 @@ Product::Product(int ID, int price, int KCal, std::string ProductName) {
   this->Price = price;
   this->KCal = KCal;
   this->ProductName = ProductName;
+  this->ProductType = "Product";
 }
 
 Food::Food(int ID, int price, int KCal, std::string ProductName, int Weight)
     : Product(ID, price, KCal, ProductName) {
   this->Weight = Weight;
+  this->ProductType = "Food";
 }
 
 Drink::Drink(int ID, int price, int KCal, std::string ProductName, int Volume)
     : Product(ID, price, KCal, ProductName) {
   this->Volume = Volume;
+  this->ProductType = "Drink";
 }
 
 // Getter and setters
@@ -35,6 +38,12 @@ std::string Product::getProductName() { return this->ProductName; }
 
 void Product::setProductName(std::string ProductName) {
   this->ProductName = ProductName;
+}
+
+std::string Product::getProductType() { return this->ProductType; }
+
+void Product::setProductType(std::string ProductType) {
+  this->ProductType = ProductType;
 }
 
 int Food::getWeight() { return this->Weight; }
@@ -73,6 +82,7 @@ void Product::FlushProductJson() {
   ProductInformation.push_back(std::to_string(this->Price));
   ProductInformation.push_back(std::to_string(this->KCal));
   ProductInformation.push_back(this->ProductName);
+  ProductInformation.push_back(this->ProductType);
   JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
                                    ProductInformation);
 }
@@ -84,6 +94,7 @@ void Food::FlushProductJson() {
   ProductInformation.push_back(std::to_string(this->KCal));
   ProductInformation.push_back(this->ProductName);
   ProductInformation.push_back(std::to_string(this->Weight));
+  ProductInformation.push_back(this->ProductType);
   JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
                                    ProductInformation);
 }
@@ -95,6 +106,7 @@ void Drink::FlushProductJson() {
   ProductInformation.push_back(std::to_string(this->KCal));
   ProductInformation.push_back(this->ProductName);
   ProductInformation.push_back(std::to_string(this->Volume));
+  ProductInformation.push_back(this->ProductType);
   JsonWriterReader.WriteArrayToKey(std::to_string(this->ID),
                                    ProductInformation);
 }
@@ -152,4 +164,26 @@ int Product::GenerateProductID() {
     return std::stoi(JsonWriterReader.GetStringFromKey("number_of_products")) +
            1;
   }
+}
+
+Product *Product::LoadProductGenericInterface(int ID) {
+  Product *GenericProduct;
+  FileIO JsonWriterReader("products.json");
+  std::vector<std::string> ProductInformation =
+      JsonWriterReader.GetArrayFromKey(std::to_string(ID));
+  try {
+    int ProductInformationLength = ProductInformation.size();
+    std::string ProductType =
+        ProductInformation.at(ProductInformationLength - 1);
+    if (ProductType == "Food") {
+      GenericProduct = new Food(ID);
+    } else if (ProductType == "Drink") {
+      GenericProduct = new Drink(ID);
+    }
+    GenericProduct->LoadProductJson();
+  } catch (...) {
+    qCritical() << "Product with ID" << ID << "does not exist!";
+    exit(EXIT_FAILURE);
+  }
+  return GenericProduct;
 }
