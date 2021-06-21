@@ -8,7 +8,7 @@
 #include <vector>
 class StatisticsInterface {
 private:
-  inline static const float ProfitMargin = 0.2;
+  inline static const float ProfitMargin = 0.25;
 
 public:
   static std::vector<Product *> GetSoldProductsByDate(std::string);
