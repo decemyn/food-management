@@ -30,6 +30,8 @@ ziua respectivă.
 ## Product documentation
 ### Documentation for the Product class.
 ---
+## Product::GetNumberOfProducts()
+#### This static method returns the number of products in the products.json file.
 ## Product::LoadProductGenericInterface(ID)
 #### This static generic interface automatically determines the product type and returns the appropriate pointer type for the product.
 ## Product::GenerateProductID()
