@@ -1,6 +1,8 @@
 #ifndef BASEWINDOW_H
 #define BASEWINDOW_H
 #include "headers/loginmenu.h"
+#include "headers/productadder.h"
+#include "headers/sellregister.h"
 #include <QMainWindow>
 #include <QPixmap>
 QT_BEGIN_NAMESPACE
@@ -18,6 +20,10 @@ public:
 
 private slots:
   void on_pushButton_clicked();
+
+  void on_pushButton_1_clicked();
+
+  void on_pushButton_3_clicked();
 
 private:
   Ui::BaseWindow *ui;
