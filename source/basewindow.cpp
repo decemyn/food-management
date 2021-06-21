@@ -1,5 +1,4 @@
 #include "headers/basewindow.h"
-#include "headers/statisticsinterface.h"
 #include "ui_basewindow.h"
 
 BaseWindow::BaseWindow(QWidget *parent)
