@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    source/statisticsmenu.cpp \
     source/productdetails.cpp \
     source/productadder.cpp \
     source/sellregister.cpp \
@@ -22,7 +23,8 @@ SOURCES += \
     source/saleinterface.cpp \
     source/statisticsinterface.cpp \
     source/useraccount.cpp \
-    source/userdomain.cpp
+    source/userdomain.cpp \
+
 
 HEADERS += \
     headers/basewindow.h \
@@ -38,6 +40,7 @@ HEADERS += \
     headers/sellregister.h \
     headers/productadder.h \
     headers/productdetails.h \
+    headers/statisticsmenu.h \
     include/rapidjson/allocators.h \
     include/rapidjson/document.h \
     include/rapidjson/encodedstream.h \
@@ -77,7 +80,9 @@ HEADERS += \
 
 
 
+
 FORMS += \
+    ui/statisticsmenu.ui \
     ui/productdetails.ui \
     ui/productadder.ui \
     ui/sellregister.ui \

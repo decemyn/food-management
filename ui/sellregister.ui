@@ -125,6 +125,11 @@
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Cantitate</string>
         </property>
@@ -150,6 +155,14 @@ background:#5F5F5F;
 border: 2px solid gray;
 border-radius:12px;
 padding:10 10 10 8px;
+
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
      </property>
      <property name="text">
@@ -180,6 +193,11 @@ padding:10 10 10 8px;
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Adauga articolul dorit:</string>
         </property>
@@ -188,9 +206,25 @@ padding:10 10 10 8px;
       <item>
        <widget class="QComboBox" name="comboBox">
         <property name="styleSheet">
-         <string notr="true">QcomboBox{
-cp;pr:#5F5F5F;
-}</string>
+         <string notr="true">
+QListView::item:selected {
+      border: 1px solid #6a6ea9;
+  }
+
+  QListView::item:selected:!active {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                  stop: 0 #ABAFE5, stop: 1 #8588B2);
+  }
+
+  QListView::item:selected:active {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                  stop: 0 #6a6ea9, stop: 1 #888dd9);
+  }
+
+  QListView::item:hover {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                  stop: 0 #FAFBFE, stop: 1 #DCDEF1);
+  }</string>
         </property>
        </widget>
       </item>
@@ -211,6 +245,14 @@ background:#5F5F5F;
 border: 2px solid gray;
 border-radius:12px;
 padding:10 10 10 8px;
+
+}
+QPushButton::pressed{
+border: 3px solid black;
+}
+QPushButton::hover{
+ background-color: #B8B8B8;
+ color: 	black;
 }</string>
      </property>
      <property name="text">
