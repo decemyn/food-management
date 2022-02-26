@@ -7,7 +7,18 @@ ziua respectivă.
 -Aplicația oferă posiblitatea afișării anumitor statistici, precum: 
   cea mai profitabilă zi, 
   cel mai bine vândut produs,
-  media cantităților comandate pentru fiecare produs în parte etc.!
+  media cantităților comandate pentru fiecare produs în parte etc.
+  
+# Online demo
+ 
+## User creation
+![Creating a user](./gifs/create_account.gif)
+
+## Adding products
+![Adding products](./gifs/creating_products.gif)
+
+## Demostration
+![demonstration](./gifs/demonnstratie_vanzarri.gif)
 
 # Documentation
 ---
