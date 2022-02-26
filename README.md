@@ -1,4 +1,4 @@
-# food-management
+# Food-management
 Sistem înregistrare vânzări fast-food
 Aplicația oferă posibilitatea de a introduce manual fiecare vânzare efectuată, de exemplu: Kebab - 2 bucăți - 26 RON.
 -Utilizatorul poate vizualiza la sfârșitul zilei istoricul vânzărilor efectuate și cantitatea de bani câștigată în
